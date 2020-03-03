@@ -6,7 +6,7 @@ const submitForm = (e) => {
   e.preventDefault();
   const formText = $('#form-text').val();
   textData.setText(formText);
-  display.displayForm();
+  display.showDisplay();
 };
 const displayForm = () => {
   let domString = '';
@@ -15,9 +15,10 @@ const displayForm = () => {
   domString += '<label for="form-text">Text</label>';
   domString += '<input type="text" class="form-control" id="form-text">';
   domString += '</div>';
-  domString += '<button type="submit" class="btn btn-primary">Submit</button>';
+  domString += '<button id="really-nice-submit" type="submit" class="btn btn-primary">Submit</button>';
   domString += '</form>';
   util.printToDom('form-container', domString);
+  $('#really-nice-submit').click(submitForm);
 };
 
 export default { displayForm, submitForm };
